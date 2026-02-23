@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #1e1e1e;
+  --color-surface: #202124;
+  --color-red: #d82219;
+  --color-green: #008a2e;
+  --color-blue: #5681c8;
+  --color-yellow: #bc7500;
+}
+
+:root {
+  --color-background: #111111;
+  --color-surface: #222222;
+  --color-red: #d82219;
+  --color-green: #008a2e;
+  --color-blue: #5681c8;
+  --color-yellow: #bc7500;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@utility gradient-text {
+  background-image: linear-gradient(
+    135deg,
+    #ea4335,
+    #ea4335,
+    #ffffff,
+    #f9ab00,
+    #fff,
+    #4285f4,
+    #fff,
+    #34a853,
+    #fff
+  );
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@utility gradient-border {
+  border: 4px solid transparent;
+  border-radius: 10px;
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    conic-gradient(
+        from var(--angle),
+        #ea4335,
+        #ffffff,
+        #f9ab00,
+        #fff,
+        #4285f4,
+        #fff,
+        #34a853,
+        #fff,
+        #ea4335
+      )
+      border-box;
+  animation: rotate-gradient 5s linear infinite;
+}
+
+@keyframes rotate-gradient {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Floating Orb Animations */
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-15px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(25px, 15px) scale(1.02);
+  }
+}
+
+@keyframes float-medium {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-25px, 20px) scale(1.08);
+  }
+  66% {
+    transform: translate(20px, -25px) scale(0.92);
+  }
+}
+
+@keyframes float-medium-slow {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  30% {
+    transform: translate(15px, 25px) scale(1.06);
+  }
+  60% {
+    transform: translate(-20px, -15px) scale(0.94);
+  }
+}
+
+@keyframes float-fast {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  20% {
+    transform: translate(-30px, -20px) scale(1.1);
+  }
+  40% {
+    transform: translate(25px, 30px) scale(0.9);
+  }
+  60% {
+    transform: translate(-15px, 25px) scale(1.05);
+  }
+  80% {
+    transform: translate(30px, -15px) scale(0.95);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 20s ease-in-out infinite;
+}
+
+.animate-float-medium {
+  animation: float-medium 15s ease-in-out infinite;
+}
+
+.animate-float-medium-slow {
+  animation: float-medium-slow 18s ease-in-out infinite;
+}
+
+.animate-float-fast {
+  animation: float-fast 12s ease-in-out infinite;
+}
